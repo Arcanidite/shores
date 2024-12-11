@@ -1,0 +1,20 @@
+---
+---
+{% include head.html %}
+<div class="container">
+    <header>
+        {% include nav.html %}
+    </header>
+    <main>
+        <!-- Add your main content here -->
+         {% if page.heroContent %}
+            {% include_relative {{ page.heroContent }} %}
+        {% endif %}
+         {% if page.heroContentRest %}
+            {% include_relative {{ page.heroContentRest }} %}
+        {% endif %}
+    </main>
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+</div>

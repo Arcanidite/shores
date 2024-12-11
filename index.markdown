@@ -1,6 +1,7 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: core
+title: "Arcanidite"
+permalink: /
+heroContent: pages/landing/hero.html
+heroContentRest: pages/landing/landing-page-content.html
 ---

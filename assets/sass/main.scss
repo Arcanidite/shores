@@ -1,0 +1,63 @@
+---
+---
+@import "base/typeface";
+
+body{
+    background-color: var(--background-primary);
+    color: var(--foreground-primary);
+    padding: 0;
+    margin: 0;
+}
+.nav {
+  background-color: #333;
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+}
+
+.nav > .links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav > .links > a {
+  padding: 0.2rem 2rem;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 0.125rem solid #00000000;
+  /* 16px equivalent */
+}
+
+.nav a.brand {
+  font-size: 1.5rem; /* 24px equivalent */
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline; /* Underline on hover */
+  text-decoration-thickness: 0.125rem; /* Thicker underline */
+}
+
+@media  (max-width: 700px) {
+  .nav > .links {
+        display: grid;
+        gap: 1rem;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+  }   
+}
+
+.lettered{
+    padding: 0rem 1rem;
+}

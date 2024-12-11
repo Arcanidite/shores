@@ -1,0 +1,188 @@
+<style>
+    :root{
+        --item-url-1: url(/assets/images/zamorak.png);
+        --item-url-2: url(/assets/images/group-cook.png);
+        --item-url-3: url(/assets/images/combat1.png);
+        --item-url-4: url(/assets/images/crystal2.png);
+        --item-url-5: url(/assets/images/minecart.png);
+        --skew-offset-container: calc(100% + (var(--percent-offset) * 200vw));
+        --skew-offset-margin: calc(var(--percent-offset) * -100vw);
+
+    }
+
+    .clip-container > *:nth-child(1) > *{
+        background-image: var(--item-url-1);
+    }
+    .clip-container > *:nth-child(2) > *{
+        background-image: var(--item-url-2);
+    }
+    .clip-container > *:nth-child(3) > *{
+        background-image: var(--item-url-3);
+    }
+    .clip-container > *:nth-child(4) > *{
+        background-image: var(--item-url-4);
+    }
+    .clip-container > *:nth-child(5) > *{
+        background-image: var(--item-url-5);
+    }
+
+    @media screen and (max-width: 600px) {
+        .clip-container > *:nth-child(2) ~ * {
+            display: none;             
+        }
+    }
+
+    .wrapper{
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .clip-container {
+        padding: 1.5rem 0rem;
+        position: relative;
+        flex-grow: 1;
+        flex-direction: row;
+        display: flex;
+        height: min-content;
+        place-content: start center;
+        width: var(--skew-offset-container);
+        margin-left: var(--skew-offset-margin);
+        box-shadow: inset 0px -5px 2rem 0.5rem #52525226;
+    }
+
+    .item-wrap{
+        pointer-events: none;
+        filter: drop-shadow(0px 0px 0.2rem #121212) drop-shadow(0px 0px 0.2rem #121212);
+        margin-right: calc(var(--percent-offset) * -24% + 1.5rem);
+    }
+    .item-wrap > *{
+        pointer-events: visible;
+        margin-right: calc(var(--percent-offset) * -24%);
+    }
+    .item-wrap, .item-wrap > * {
+        width: 100%;
+        height: 16rem;
+    }
+
+    :is(.item-wrap > *):hover {
+        filter: brightness(1.5);
+    }
+
+    @property --percent-offset {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 0.5;
+    }
+
+    .clip-container {
+         --upper-left: calc(var(--percent-offset) * 100%);
+        --bottom-right: calc(100% - var(--percent-offset) * 100%);
+    }
+
+    .item-wrap > *{
+        margin-right: calc(var(--percent-offset) * -24%);
+        clip-path: polygon(
+            var(--upper-left) 0%,
+            100% 0%,
+            var(--bottom-right) 100%,
+            0% 100%
+        );
+        
+        background-size: cover; 
+        background-position: center 20%;
+        background-repeat: no-repeat;
+        width: 100%;
+    /* margin: 0rem calc(var(--percent-offset) * 12% * -1); */
+    }
+
+    @property --percent-offset {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 0.2;
+    }
+
+    @property --start-x {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 0%;
+    }
+
+    @property --start-y {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 0%;
+    }
+    @property --end-x {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 100%;
+    }
+    @property --end-y {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 100%;
+    }
+
+    @keyframes pan {
+    0% {
+        background-position: var(--end-x) var(--end-y);
+    }
+    50% {
+        background-position: var(--start-x) var(--start-y);
+    }
+    100% {
+        background-position: var(--end-x) var(--end-y);
+    }
+    }
+
+    .item1 {
+        --start-y: 0px;
+        --start-x: 380px;
+        --end-y: var(--start-y);
+        --end-x: var(--start-x);
+        /* animation: pan 17s infinite cubic-bezier(0.25, 0.1, 0.25, 1); */
+        /* animation: pan 17s infinite cubic-bezier(0.25, 0.1, 0.25, 1); */
+    }
+    .item2 {
+        --start-y: 0rem;
+        --start-x: 0px;
+        --end-y: var(--start-y);
+        --end-x: var(--start-x);
+        animation: pan 10s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .item3 {
+        --start-y: center;
+        --start-x: center;
+        --end-y: var(--start-y);
+        --end-x: var(--start-x);
+        /* animation: pan 17s infinite cubic-bezier(0.25, 0.1, 0.25, 1); */
+        /* animation: pan 13s infinite cubic-bezier(0.25, 0.1, 0.25, 1); */
+    }
+    .item4 {
+        --start-y: 27rem;
+        --start-x: 1060px;
+        --end-y: 31rem;
+        --end-x: 1180px;
+        /* animation: pan 17s infinite cubic-bezier(0.25, 0.1, 0.25, 1); */
+    }
+</style>
+<div class="wrapper">
+    <div class="clip-container">
+        <div class="item-wrap">
+            <div class="item1"></div>
+        </div>
+        <div class="item-wrap">
+            <div class="item2"></div>
+        </div>
+        <div class="item-wrap">
+          <div class="item3"></div>
+        </div>
+        <div class="item-wrap">
+            <div class="item4"></div>
+        </div>
+        <div class="item-wrap">
+            <div class="item4"></div>
+        </div>
+    </div>
+</div>

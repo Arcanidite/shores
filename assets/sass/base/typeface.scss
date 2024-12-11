@@ -1,0 +1,17 @@
+// Define the base font properties
+$base-font-family: Arial, sans-serif;
+$base-font-size: 1.6rem; // Use rem instead of px
+$base-line-height: 1.5;
+
+// Define heading styles
+$heading-font-size: 1.25rem; // Set the font size for all headings
+
+// Define paragraph styles
+$paragraph-margin-bottom: 1rem;
+
+// Apply the typography styles to the body element
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
