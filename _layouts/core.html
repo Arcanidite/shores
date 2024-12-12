@@ -10,8 +10,10 @@
          {% if page.heroContent %}
             {% include_relative {{ page.heroContent }} %}
         {% endif %}
-         {% if page.heroContentRest %}
-            {% include_relative {{ page.heroContentRest }} %}
+        {% if page.heroContentRest %}
+            {% for val in page.heroContentRest %}
+                {% include_relative {{ val }} %}
+            {% endfor %}
         {% endif %}
     </main>
     <footer>

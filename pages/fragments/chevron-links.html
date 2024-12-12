@@ -1,0 +1,132 @@
+<style scoped>
+    .link-wrapper{
+        box-shadow: inset 0px 0px 1rem -0.6rem var(--foreground-accent);
+        padding: 1rem 0.2rem;
+        margin: 0rem -0.8rem 0rem -0.4rem;
+    }
+    .link-wrapper > * {
+        overflow: hidden;
+        justify-content: end;
+        align-items: start;
+        display: flex
+    ;
+        flex-direction: row;
+        width: 100%;
+        --upper-left: calc(1.4rem);
+        --bottom-right: calc(100% - 1.4rem);
+        flex-wrap: wrap;
+        gap: 0.8rem 0rem;
+    }
+
+    .nav-container{
+        justify-content: end;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-grow:1;
+    }
+    
+    @media screen and (max-width: 600px) {
+        .link-wrapper{
+            display: none;
+        }
+    }
+
+    .item-wrap-nav{
+        pointer-events: none;
+    }
+    .auto-point{
+        cursor: auto;
+    }
+    .item-wrap-nav:not(.auto-point) > * {
+        cursor: pointer;
+    }
+    .item-wrap-nav > * {
+        pointer-events: visible;
+        clip-path: polygon(
+            var(--upper-left) 0%,
+            100% 0%,
+            var(--bottom-right) 100%,
+            0% 100%
+        );
+        padding: 0rem 2rem;
+        color: var(--foreground-primary);
+        background-color: var(--background-color-dull);
+    }
+    .item-wrap-nav.start-nav{
+        flex-grow: 1;
+    }
+    .item-wrap-nav.start-nav > *{
+        clip-path: polygon(
+            0% 0%,
+            100% 0%,
+            100% 100%,
+            0% 100%
+        );
+        white-space: nowrap;
+    }
+    .item-wrap-nav:last-of-type > *{
+        clip-path: polygon(
+            var(--upper-left) 0%,
+            100% 0%,
+            100% 100%,
+            0% 100%
+        );
+        margin-right: -0.5rem;
+    }
+    .item-wrap-nav.link-highlight > *:hover{
+        filter: brightness(1.5);
+        text-decoration: underline;
+    }
+    .item-wrap-nav.expand{
+        background-color: var(--background-color-dull);
+        flex-grow: 1;
+        width: 100%;
+        min-width: 2rem;
+        height: 100%;
+        clip-path: polygon(0% 0%, 100% 0%, calc(100% - 2rem) 100%, 0% 100%);
+        margin-top: -0.8rem;
+        margin-right: -0.5rem;
+        margin-left: -0.1rem;
+        padding-bottom: 0.8rem;
+        align-self: flex-start;
+    }
+    .item-wrap-nav.expand::before{
+        content: '\00a0';
+    }
+</style>
+<div class="link-wrapper">
+    <div>
+    <div class="item-wrap-nav start-nav auto-point">
+        <div>    
+            <text style="color: var(--foreground-accent)">
+                Welcome
+            </text>
+            to the Arcanidite Shores Fansite
+        </div>
+    </div>
+    <div class="nav-container">
+        <div class="item-wrap-nav expand"></div>
+        <div class="item-wrap-nav link-highlight">
+            <div>
+                Discords
+            </div>
+        </div>
+        <div class="item-wrap-nav link-highlight">
+            <div>
+                Guides
+            </div>
+        </div>
+        <div class="item-wrap-nav link-highlight">
+            <div>
+                Blogs
+            </div>
+        </div>
+        <div class="item-wrap-nav link-highlight">
+            <div>
+                Misc
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
